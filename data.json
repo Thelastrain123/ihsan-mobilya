@@ -1,285 +1,285 @@
-{
-  "categories": [
-    {
-      "id": "mutfak",
-      "name": "Mutfak",
-      "tag": "Modern & Şık",
-      "subItems": [
-        {
-          "id": 201,
-          "title": "Lüks Ada Mutfak",
-          "desc": "8K Premium Ada Tasarımı.",
-          "images": [
-            "assets/kitchen_8k.png",
-            "https://images.unsplash.com/photo-1556912177-f547c12f38a4?q=80&w=1200",
-            "https://images.unsplash.com/photo-1556911220-e152748bd471?q=80&w=1200"
-          ],
-          "price": "45.000 TL"
-        },
-        {
-          "id": 202,
-          "title": "Modern Antrasit Mutfak",
-          "desc": "Minimalist antrasit dolaplar.",
-          "images": [
-            "https://images.unsplash.com/photo-1556912167-4d7c5885f83c?q=80&w=1200",
-            "https://images.unsplash.com/photo-1556185791-af7ff448861d?q=80&w=1200"
-          ],
-          "price": "38.500 TL"
-        },
-        {
-          "id": 203,
-          "title": "Klasik Beyaz Mutfak",
-          "desc": "Zamansız beyaz mutfak tasarımı.",
-          "images": [
-            "https://images.unsplash.com/photo-1556909212-d5b604ad9290?q=80&w=1200",
-            "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200"
-          ],
-          "price": "42.000 TL"
-        }
-      ]
-    },
-    {
-      "id": "yatak",
-      "name": "Yatak Odası",
-      "tag": "Konfor & Huzur",
-      "subItems": [
-        {
-          "id": 301,
-          "title": "Modern Yatak Takımı",
-          "desc": "8K Premium Konfor.",
-          "images": [
-            "assets/bedroom_8k.png",
-            "https://images.unsplash.com/photo-1505693419163-97206413f279?q=80&w=1200",
-            "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1200"
-          ],
-          "price": "32.000 TL"
-        },
-        {
-          "id": 302,
-          "title": "Lüks Kadife Yatak",
-          "desc": "Yumuşak doku ve zarafet.",
-          "images": [
-            "https://images.unsplash.com/photo-1560448194-4480c897555b?q=80&w=1200",
-            "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=1200"
-          ],
-          "price": "28.500 TL"
-        },
-        {
-          "id": 303,
-          "title": "Minimalist Ahşap Takım",
-          "desc": "Doğal ahşap sıcaklığı.",
-          "images": [
-            "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=1200",
-            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1200"
-          ],
-          "price": "24.000 TL"
-        }
-      ]
-    },
-    {
-      "id": "salon",
-      "name": "Salon",
-      "tag": "Lüks & Estetik",
-      "subItems": [
-        {
-          "id": 101,
-          "title": "Yenilenmiş Salon Takımı",
-          "desc": "8K Premium Estetik.",
-          "images": [
-            "assets/salon_8k.png",
-            "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1200",
-            "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1200"
-          ],
-          "price": "60.000 TL"
-        },
-        {
-          "id": 102,
-          "title": "İskandinav Koltuk Takımı",
-          "desc": "Sade ve modern çizgiler.",
-          "images": [
-            "https://images.unsplash.com/photo-1583847268964-b28dc2f51ac9?q=80&w=1200",
-            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200"
-          ],
-          "price": "35.500 TL"
-        },
-        {
-          "id": 103,
-          "title": "Premium Deri Takım",
-          "desc": "Zarafetin simgesi deri koltuklar.",
-          "images": [
-            "https://images.unsplash.com/photo-1540574163026-643ea20ade25?q=80&w=1200",
-            "https://images.unsplash.com/photo-1506898667547-42e22a46e125?q=80&w=1200"
-          ],
-          "price": "72.000 TL"
-        }
-      ]
-    },
-    {
-      "id": "oturma",
-      "name": "Oturma Odası",
-      "tag": "Günlük Konfor",
-      "subItems": [
-        {
-          "id": 401,
-          "title": "Modern Köşe Takımı",
-          "desc": "8K Premium Konfor.",
-          "images": [
-            "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1200",
-            "https://images.unsplash.com/photo-1524758631624-e28a909de0ad?q=80&w=1200"
-          ],
-          "price": "28.000 TL"
-        },
-        {
-          "id": 402,
-          "title": "Bohem Oturma Alanı",
-          "desc": "Rahat ve sıcak tasarım.",
-          "images": [
-            "https://images.unsplash.com/photo-1583847268964-b28dc2f51ac9?q=80&w=1200",
-            "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200"
-          ],
-          "price": "22.500 TL"
-        },
-        {
-          "id": 403,
-          "title": "Zarif Berjer Takımı",
-          "desc": "Modern berjer kombinasyonları.",
-          "images": [
-            "https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=1200",
-            "https://images.unsplash.com/photo-1594913785162-e678ac052ddd?q=80&w=1200"
-          ],
-          "price": "18.000 TL"
-        }
-      ]
-    },
-    {
-      "id": "kapi",
-      "name": "Kapı",
-      "tag": "Modern Girişler",
-      "subItems": [
-        {
-          "id": 501,
-          "title": "Lüks Panel Kapı",
-          "desc": "Premium tasarım kapı.",
-          "images": [
-            "https://images.unsplash.com/photo-1506703380046-24835848bb22?q=80&w=1200",
-            "https://images.unsplash.com/photo-1545620958-8547376a9c8f?q=80&w=1200"
-          ],
-          "price": "8.000 TL"
-        },
-        {
-          "id": 502,
-          "title": "Modern Anthracite Kapı",
-          "desc": "Antrasit şıklığı.",
-          "images": [
-            "https://images.unsplash.com/photo-1549412177-3e8f815bebd0?q=80&w=1200",
-            "https://images.unsplash.com/photo-1517602302552-471262400300?q=80&w=1200"
-          ],
-          "price": "9.500 TL"
-        },
-        {
-          "id": 503,
-          "title": "Klasik Meşe Kapı",
-          "desc": "Doğal meşe dokusu.",
-          "images": [
-            "https://images.unsplash.com/photo-1481277542470-605612bd2d61?q=80&w=1200",
-            "https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=1200"
-          ],
-          "price": "7.200 TL"
-        }
-      ]
-    },
-    {
-      "id": "masa",
-      "name": "Masa",
-      "tag": "Zarif Yemek Odası",
-      "subItems": [
-        {
-          "id": 601,
-          "title": "Tasarım Yemek Masası",
-          "desc": "Premium tasarım masa.",
-          "images": [
-            "https://images.unsplash.com/photo-1577140917170-285929fb55b7?q=80&w=1200",
-            "https://images.unsplash.com/photo-1622320147690-34907994432a?q=80&w=1200"
-          ],
-          "price": "15.000 TL"
-        },
-        {
-          "id": 602,
-          "title": "Oval Mermer Masa",
-          "desc": "Lüks mermer yüzey.",
-          "images": [
-            "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?q=80&w=1200",
-            "https://images.unsplash.com/photo-1617806118233-f8e187c44b5c?q=80&w=1200"
-          ],
-          "price": "24.500 TL"
-        },
-        {
-          "id": 603,
-          "title": "Minimalist Çalışma Masası",
-          "desc": "Ofis ve ev için uygun.",
-          "images": [
-            "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80&w=1200",
-            "https://images.unsplash.com/photo-1530099486328-e021101a494a?q=80&w=1200"
-          ],
-          "price": "6.500 TL"
-        }
-      ]
-    },
-    {
-      "id": "sandalye",
-      "name": "Sandalye",
-      "tag": "Konforlu Oturum",
-      "subItems": [
-        {
-          "id": 701,
-          "title": "Premium Sandalye",
-          "desc": "Premium tasarım sandalye.",
-          "images": [
-            "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1200",
-            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200"
-          ],
-          "price": "4.500 TL"
-        },
-        {
-          "id": 702,
-          "title": "Modern Mutfak Sandalyesi",
-          "desc": "Dayanıklı ve şık.",
-          "images": [
-            "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200",
-            "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?q=80&w=1200"
-          ],
-          "price": "3.200 TL"
-        },
-        {
-          "id": 703,
-          "title": "İkonik Dinlenme Koltuğu",
-          "desc": "Konforun zirvesi.",
-          "images": [
-            "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1200",
-            "https://images.unsplash.com/photo-1581539250439-c96689b516dd?q=80&w=1200"
-          ],
-          "price": "12.000 TL"
-        }
-      ]
-    }
-  ],
-  "campaigns": [
-    {
-      "id": 1,
-      "title": "Bahar Kampanyası",
-      "badge": "Yeni Sezon",
-      "desc": "Tüm koltuk takımlarında %20 indirim fırsatını kaçırmayın."
-    }
-  ],
-  "orders": [
-    {
-      "isim": "alperen",
-      "soyisim": "saddas",
-      "email": "asdha@gmail.com",
-      "tel": "05605455510",
-      "not": "mutfak",
-      "id": 1775245167265,
-      "date": "03.04.2026 22:39:27"
-    }
-  ]
+﻿{
+    "categories":  [
+                       {
+                           "id":  "mutfak",
+                           "name":  "Mutfak",
+                           "tag":  "Modern \u0026 Şık",
+                           "subItems":  [
+                                            {
+                                                "id":  201,
+                                                "title":  "Lüks Ada Mutfak",
+                                                "desc":  "8K Premium Ada Tasarımı.",
+                                                "images":  [
+                                                               "assets/kitchen_8k.png",
+                                                               "https://images.unsplash.com/photo-1556912177-f547c12f38a4?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1556911220-e152748bd471?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "45.000 TL"
+                                            },
+                                            {
+                                                "id":  202,
+                                                "title":  "Modern Antrasit Mutfak",
+                                                "desc":  "Minimalist antrasit dolaplar.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1556912167-4d7c5885f83c?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1556185791-af7ff448861d?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "38.500 TL"
+                                            },
+                                            {
+                                                "id":  203,
+                                                "title":  "Klasik Beyaz Mutfak",
+                                                "desc":  "Zamansız beyaz mutfak tasarımı.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1556909212-d5b604ad9290?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "42.000 TL"
+                                            }
+                                        ]
+                       },
+                       {
+                           "id":  "yatak",
+                           "name":  "Yatak Odası",
+                           "tag":  "Konfor \u0026 Huzur",
+                           "subItems":  [
+                                            {
+                                                "id":  301,
+                                                "title":  "Modern Yatak Takımı",
+                                                "desc":  "8K Premium Konfor.",
+                                                "images":  [
+                                                               "assets/bedroom_8k.png",
+                                                               "https://images.unsplash.com/photo-1505693419163-97206413f279?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "32.000 TL"
+                                            },
+                                            {
+                                                "id":  302,
+                                                "title":  "Lüks Kadife Yatak",
+                                                "desc":  "Yumuşak doku ve zarafet.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1560448194-4480c897555b?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "28.500 TL"
+                                            },
+                                            {
+                                                "id":  303,
+                                                "title":  "Minimalist Ahşap Takım",
+                                                "desc":  "Doğal ahşap sıcaklığı.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "24.000 TL"
+                                            }
+                                        ]
+                       },
+                       {
+                           "id":  "salon",
+                           "name":  "Salon",
+                           "tag":  "Lüks \u0026 Estetik",
+                           "subItems":  [
+                                            {
+                                                "id":  101,
+                                                "title":  "Yenilenmiş Salon Takımı",
+                                                "desc":  "8K Premium Estetik.",
+                                                "images":  [
+                                                               "assets/salon_8k.png",
+                                                               "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "60.000 TL"
+                                            },
+                                            {
+                                                "id":  102,
+                                                "title":  "İskandinav Koltuk Takımı",
+                                                "desc":  "Sade ve modern çizgiler.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1583847268964-b28dc2f51ac9?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "35.500 TL"
+                                            },
+                                            {
+                                                "id":  103,
+                                                "title":  "Premium Deri Takım",
+                                                "desc":  "Zarafetin simgesi deri koltuklar.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1540574163026-643ea20ade25?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1506898667547-42e22a46e125?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "72.000 TL"
+                                            }
+                                        ]
+                       },
+                       {
+                           "id":  "oturma",
+                           "name":  "Oturma Odası",
+                           "tag":  "Günlük Konfor",
+                           "subItems":  [
+                                            {
+                                                "id":  401,
+                                                "title":  "Modern Köşe Takımı",
+                                                "desc":  "8K Premium Konfor.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1524758631624-e28a909de0ad?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "28.000 TL"
+                                            },
+                                            {
+                                                "id":  402,
+                                                "title":  "Bohem Oturma Alanı",
+                                                "desc":  "Rahat ve sıcak tasarım.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1583847268964-b28dc2f51ac9?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "22.500 TL"
+                                            },
+                                            {
+                                                "id":  403,
+                                                "title":  "Zarif Berjer Takımı",
+                                                "desc":  "Modern berjer kombinasyonları.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1594913785162-e678ac052ddd?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "18.000 TL"
+                                            }
+                                        ]
+                       },
+                       {
+                           "id":  "kapi",
+                           "name":  "Kapı",
+                           "tag":  "Modern Girişler",
+                           "subItems":  [
+                                            {
+                                                "id":  501,
+                                                "title":  "Lüks Panel Kapı",
+                                                "desc":  "Premium tasarım kapı.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1506703380046-24835848bb22?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1545620958-8547376a9c8f?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "8.000 TL"
+                                            },
+                                            {
+                                                "id":  502,
+                                                "title":  "Modern Anthracite Kapı",
+                                                "desc":  "Antrasit şıklığı.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1549412177-3e8f815bebd0?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1517602302552-471262400300?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "9.500 TL"
+                                            },
+                                            {
+                                                "id":  503,
+                                                "title":  "Klasik Meşe Kapı",
+                                                "desc":  "Doğal meşe dokusu.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1481277542470-605612bd2d61?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "7.200 TL"
+                                            }
+                                        ]
+                       },
+                       {
+                           "id":  "masa",
+                           "name":  "Masa",
+                           "tag":  "Zarif Yemek Odası",
+                           "subItems":  [
+                                            {
+                                                "id":  601,
+                                                "title":  "Tasarım Yemek Masası",
+                                                "desc":  "Premium tasarım masa.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1577140917170-285929fb55b7?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1622320147690-34907994432a?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "15.000 TL"
+                                            },
+                                            {
+                                                "id":  602,
+                                                "title":  "Oval Mermer Masa",
+                                                "desc":  "Lüks mermer yüzey.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1617806118233-f8e187c44b5c?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "24.500 TL"
+                                            },
+                                            {
+                                                "id":  603,
+                                                "title":  "Minimalist Çalışma Masası",
+                                                "desc":  "Ofis ve ev için uygun.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1530099486328-e021101a494a?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "6.500 TL"
+                                            }
+                                        ]
+                       },
+                       {
+                           "id":  "sandalye",
+                           "name":  "Sandalye",
+                           "tag":  "Konforlu Oturum",
+                           "subItems":  [
+                                            {
+                                                "id":  701,
+                                                "title":  "Premium Sandalye",
+                                                "desc":  "Premium tasarım sandalye.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "4.500 TL"
+                                            },
+                                            {
+                                                "id":  702,
+                                                "title":  "Modern Mutfak Sandalyesi",
+                                                "desc":  "Dayanıklı ve şık.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1503602642458-232111445657?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "3.200 TL"
+                                            },
+                                            {
+                                                "id":  703,
+                                                "title":  "İkonik Dinlenme Koltuğu",
+                                                "desc":  "Konforun zirvesi.",
+                                                "images":  [
+                                                               "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80\u0026w=1200",
+                                                               "https://images.unsplash.com/photo-1581539250439-c96689b516dd?q=80\u0026w=1200"
+                                                           ],
+                                                "price":  "12.000 TL"
+                                            }
+                                        ]
+                       }
+                   ],
+    "campaigns":  [
+                      {
+                          "id":  1,
+                          "title":  "Bahar Kampanyası",
+                          "badge":  "Yeni Sezon",
+                          "desc":  "Tüm koltuk takımlarında %20 indirim fırsatını kaçırmayın."
+                      }
+                  ],
+    "orders":  [
+                   {
+                       "isim":  "alperen",
+                       "soyisim":  "saddas",
+                       "email":  "asdha@gmail.com",
+                       "tel":  "05605455510",
+                       "not":  "mutfak",
+                       "id":  1775245167265,
+                       "date":  "03.04.2026 22:39:27"
+                   }
+               ]
 }
