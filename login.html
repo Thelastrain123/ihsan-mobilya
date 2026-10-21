@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap | İhsan Mobilya</title>
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-container">
+
+    <div class="login-glass">
+        <a href="index.html" class="logo" style="display:inline-flex; margin-bottom: 2rem;"><img src="assets/logo.jpg" alt="İhsan Mobilya Logo" class="logo-img">İHSAN<span>MOBİLYA</span></a>
+        <h2>Yönetici Girişi</h2>
+        <form id="login-form">
+            <div class="form-group" style="text-align: left;">
+                <label>Kullanıcı Adı</label>
+                <input type="text" id="username" placeholder="admin" required>
+            </div>
+            <div class="form-group" style="text-align: left;">
+                <label>Şifre</label>
+                <input type="password" id="password" placeholder="••••" required>
+            </div>
+            <div style="text-align: left; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" id="remember" style="width: auto; cursor: pointer;">
+                <label for="remember" style="margin: 0; font-size: 0.9rem; opacity: 0.8; cursor: pointer;">Beni Hatırla</label>
+            </div>
+            <p id="login-error" style="color: #ff4757; font-size: 0.85rem; margin-bottom: 1rem; display: none;">Hatalı kullanıcı adı veya şifre!</p>
+            <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Giriş Yap</button>
+        </form>
+        <a href="index.html" style="display: block; margin-top: 1.5rem; color: #777; text-decoration: none; font-size: 0.9rem;">← Siteye Dön</a>
+    </div>
+
+    <script>
+        // Sadece local erişimde login sayfası açılabilir
+        (function() {
+            const h = window.location.hostname;
+            const isLocal = h === 'localhost' || h === '127.0.0.1' || window.location.protocol === 'file:';
+            if (!isLocal) {
+                // Dışarıdan erişim → ana sayfaya yönlendir
+                window.location.replace('index.html');
+            }
+        })();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            // Check for Auto-Login parameter
+            if (params.get('auto') === '1') {
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'admin.html';
+            }
+
+            // Normal login handling
+            document.getElementById('login-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const user = document.getElementById('username').value;
+                const pass = document.getElementById('password').value;
+                const remember = document.getElementById('remember').checked;
+
+                if (user === 'admin' && pass === '1234') {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    if (remember) {
+                        localStorage.setItem('rememberMe', 'true');
+                    }
+                    window.location.href = 'admin.html';
+                } else {
+                    document.getElementById('login-error').style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
