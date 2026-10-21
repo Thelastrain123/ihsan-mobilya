@@ -166,6 +166,12 @@ function getCategories() {
 
 function saveCategories(data) {
     localStorage.setItem('ihsan_categories', JSON.stringify(data));
+    // Server'a da kaydet — böylece tüm cihazlar senkron kalır
+    fetch('/api/data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ categories: data, campaigns: [], orders: [] })
+    }).catch(() => {});
 }
 
 function populateCategorySelects() {
