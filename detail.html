@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksiyon Detayı | İHSAN MOBİLYA</title>
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=9">
+    <script src="catalog-def.js"></script>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><img src="assets/logo.jpg" alt="İhsan Mobilya Logo" class="logo-img">İHSAN<span>MOBİLYA</span></a>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="index.html#tasarimlar">Koleksiyonlar</a></li>
+                <!-- JS tarafından doldurulur -->
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding-top: 120px; min-height: 100vh; padding-bottom: 5rem;">
+        <section style="padding: 0 8%;">
+            
+            <!-- Geri Dön + Başlık -->
+            <div style="margin-bottom: 2rem;">
+                <a href="index.html" style="color:var(--accent-color); text-decoration:none; font-size:0.8rem; letter-spacing:3px; font-weight:700; display:inline-flex; align-items:center; gap:8px;">
+                    ← TÜM KOLEKSİYONLAR
+                </a>
+                <h1 id="category-title" style="font-size:3.2rem; font-weight:900; margin-top:1.2rem; letter-spacing:-1px;">KOLEKSİYON</h1>
+                <p id="category-tag" style="color:var(--accent-color); text-transform:uppercase; letter-spacing:4px; font-size:0.85rem; font-weight:600; margin-top:0.4rem;"></p>
+            </div>
+
+            <!-- Alt Kategori Hızlı Geçiş Hapları (Pills) -->
+            <div id="subcat-pills" class="subcat-pills-bar" style="display:none;"></div>
+
+            <!-- Yöneticiye Özel Model Ekleme Paneli -->
+            <div id="admin-add-box" style="display:none; background:#181818; border:1px solid var(--accent-color); border-radius:14px; padding:2.5rem; margin-bottom:4rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+                    <h3 style="color:var(--accent-color); font-size:1.2rem; font-weight:800; letter-spacing:1px;">+ BU KOLEKSİYONA YENİ MODEL EKLE</h3>
+                </div>
+                <form onsubmit="event.preventDefault(); addNewProduct();" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.2rem;">
+                    <div>
+                        <label style="font-size:0.8rem; opacity:0.8; display:block; margin-bottom:0.3rem;">Model Adı *</label>
+                        <input type="text" id="add-title" class="admin-input" placeholder="Örn: Lake Ada Mutfak" required>
+                    </div>
+                    <div>
+                        <label style="font-size:0.8rem; opacity:0.8; display:block; margin-bottom:0.3rem;">Fiyat *</label>
+                        <input type="text" id="add-price" class="admin-input" placeholder="Örn: 45.000 TL" required>
+                    </div>
+                    <div>
+                        <label style="font-size:0.8rem; opacity:0.8; display:block; margin-bottom:0.3rem;">İndirimli Fiyat (Opsiyonel)</label>
+                        <input type="text" id="add-discount" class="admin-input" placeholder="Örn: 38.500 TL">
+                    </div>
+                    <div>
+                        <label style="font-size:0.8rem; opacity:0.8; display:block; margin-bottom:0.3rem;">Kısa Açıklama</label>
+                        <input type="text" id="add-desc" class="admin-input" placeholder="Örn: Özel lake kaplama ve frenli çekmeceler">
+                    </div>
+                    <div style="grid-column: 1 / -1;">
+                        <label style="font-size:0.8rem; opacity:0.8; display:block; margin-bottom:0.3rem;">Fotoğraf(lar) Yükle</label>
+                        <div class="file-upload-wrapper">
+                            <label for="add-file" class="file-upload-label" id="add-file-label">
+                                <span>📁 Bilgisayardan Fotoğraf Seç...</span>
+                            </label>
+                            <input type="file" id="add-file" accept="image/*" multiple onchange="handleAddFileUpload(this)">
+                        </div>
+                        <div id="add-previews" class="upload-preview-grid" style="margin-top:0.8rem;"></div>
+                    </div>
+                    <div style="grid-column: 1 / -1; display:flex; justify-content:flex-end;">
+                        <button type="submit" class="btn" style="padding:0.9rem 2.5rem; border:none; cursor:pointer;">MODELİ KAYDET</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Ürün Modelleri Izgarası -->
+            <div class="product-grid" id="detail-grid" style="padding:0;">
+                <!-- JS tarafından doldurulur -->
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Kolay Erişim Bölmeleri (Kategoriler & Alt Modeller) -->
+    <section class="footer-directory-section" id="footer-directory">
+        <!-- catalog-def.js tarafından 5 kolon olarak doldurulur -->
+    </section>
+
+    <footer>
+        <p style="margin-bottom:0.5rem;"><a href="tel:+905544055161" class="phone-highlight">📞 +90 554 405 51 61</a> &bull; 📍 Yükseltepe Mah. Karakeçili Cad. 12/A Keçiören/Ankara &bull; <a href="https://www.instagram.com/ihsan.mobilya/" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none;">📸 @ihsan.mobilya</a></p>
+        <p>&copy; 2026 İhsan Mobilya. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Lightbox (Büyük Fotoğraf Önizleme) -->
+    <div id="lightbox" class="lightbox" onclick="if(event.target===this)closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <button class="lightbox-nav" onclick="changeLightboxImage(-1)" style="left:10px;">❮</button>
+            <img src="" id="lightbox-img" alt="" onerror="this.src='assets/hero.png'">
+            <button class="lightbox-nav" onclick="changeLightboxImage(1)" style="right:10px;">❯</button>
+        </div>
+    </div>
+
+    <!-- Düzenleme Modalı -->
+    <div id="edit-modal" class="modal-overlay" onclick="if(event.target===this)closeEditModal()">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeEditModal()">&times;</button>
+            <h3 id="modal-title">Modeli Düzenle</h3>
+            <form style="margin-top:2rem;" onsubmit="event.preventDefault(); saveEdit();">
+                <input type="hidden" id="edit-item-idx">
+                <div class="form-group">
+                    <label>Tasarım / Model Adı</label>
+                    <input type="text" id="edit-title" class="admin-input" required>
+                </div>
+                <div class="form-group" style="margin-top:1rem;">
+                    <label>Kategori / Bölüm Seçimi (Hangi kategoride gösterilsin?)</label>
+                    <select id="edit-category" class="admin-input" style="background:#1a1a1a; color:#fff; cursor:pointer;">
+                        <!-- JS populateCategoryDropdown tarafından 5 ana grup ve 33 alt kategori eklenir -->
+                    </select>
+                </div>
+                <div class="form-group" style="margin-top:1rem;">
+                    <label>Açıklama</label>
+                    <textarea id="edit-desc" class="admin-input" rows="3"></textarea>
+                </div>
+                <div style="margin-top:1rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div class="form-group">
+                        <label>Normal Fiyat</label>
+                        <input type="text" id="edit-price" class="admin-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label>İndirimli Fiyat</label>
+                        <input type="text" id="edit-discount" class="admin-input" placeholder="Opsiyonel">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:1rem;">
+                    <label>Mevcut Fotoğraflar (tıklayarak silin)</label>
+                    <div id="edit-preview-container" class="upload-preview-grid"></div>
+                </div>
+                <div class="form-group" style="margin-top:1rem;">
+                    <label>Yeni Fotoğraf Ekle</label>
+                    <div class="file-upload-wrapper">
+                        <label for="edit-image-file" class="file-upload-label">
+                            <span>📁 Yeni Fotoğrafları Seç...</span>
+                        </label>
+                        <input type="file" id="edit-image-file" accept="image/*" multiple onchange="handleEditFileUpload(this)">
+                    </div>
+                </div>
+                <button type="submit" class="btn" style="width:100%; border:none; cursor:pointer; margin-top:2rem;">DEĞİŞİKLİKLERİ KAYDET</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Alt Çubuğu -->
+    <div id="admin-bar" class="admin-bar" style="display:none;">
+        <span class="admin-label">⚡ YÖNETİCİ MODU</span>
+        <div style="display:flex; gap:0.8rem; align-items:center;">
+            <button onclick="toggleAddBox()" class="btn" style="padding:0.45rem 1.1rem; font-size:0.75rem; background:#27ae60; color:#fff; border:none;">+ MODEL EKLE</button>
+            <a href="admin.html" class="btn" style="padding:0.45rem 1.1rem; font-size:0.75rem; background:var(--accent-color); color:#000; text-decoration:none;">PANEL</a>
+            <button onclick="logoutAdmin()" class="btn" style="padding:0.45rem 1rem; font-size:0.75rem; background:#c0392b; color:#fff; border:none;">ÇIKIŞ</button>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const rawCatParam = params.get('cat') || '';
+        let currentTargetCat = null;
+        let currentLightboxImages = [];
+        let currentLightboxIndex = 0;
+        let currentEditImages = [];
+        let newlyAddedImages = [];
+
+        function isAdmin() {
+            return localStorage.getItem('isLoggedIn') === 'true';
+        }
+
+        function getCategories() {
+            if (typeof getMergedCategories === 'function') {
+                return getMergedCategories();
+            }
+            try { return JSON.parse(localStorage.getItem('ihsan_categories')) || []; }
+            catch(e) { return []; }
+        }
+
+        function saveCategories(cats) {
+            localStorage.setItem('ihsan_categories', JSON.stringify(cats));
+        }
+
+        // Güçlü kategori arama (Türkçe karakter, slug ve alias uyumlu)
+        function findCategory(categories, target) {
+            if (!target) return null;
+            let clean = decodeURIComponent(target).trim().toLowerCase();
+            const legacyAliases = {
+                'salon': 'koltuk-takimlari',
+                'oturma': 'kose-takimi',
+                'mutfak': 'mutfak-masa-takimi',
+                'yatak': 'yatak-odasi-takimi'
+            };
+            if (legacyAliases[clean]) clean = legacyAliases[clean];
+
+            // 1. Birebir ID eşleşmesi
+            let m = categories.find(c => c.id && c.id.toLowerCase() === clean);
+            if (m) return m;
+
+            // 2. Kategori adı eşleşmesi
+            m = categories.find(c => c.name && c.name.toLowerCase() === clean);
+            if (m) return m;
+
+            // 3. Slug eşleşmesi
+            const toSlug = (s) => s ? s.toLowerCase()
+                .replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u')
+                .replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c')
+                .replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') : '';
+
+            m = categories.find(c => toSlug(c.id) === toSlug(clean) || toSlug(c.name) === toSlug(clean));
+            if (m) return m;
+
+            // 4. Kısmi eşleşme
+            return categories.find(c => (c.id && c.id.toLowerCase().includes(clean)) || (c.name && c.name.toLowerCase().includes(clean)));
+        }
+
+        function updateNavbar() {
+            const navMenu = document.getElementById('nav-menu');
+            if (!navMenu) return;
+
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
+
+            if (isAdmin()) {
+                navMenu.innerHTML = `
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="index.html#tasarimlar">Koleksiyonlar</a></li>
+                    <li><a href="https://www.instagram.com/ihsan.mobilya/" target="_blank" rel="noopener noreferrer" style="color:#e1306c; font-weight:600;">Instagram</a></li>
+                    <li><a href="admin.html" style="color:var(--accent-color); font-weight:700;">YÖNETİM</a></li>
+                    <li><button onclick="logoutAdmin()" class="nav-logout-btn">ÇIKIŞ YAP</button></li>
+                `;
+            } else {
+                const loginLink = isLocal 
+                    ? `<li><a href="login.html" style="opacity:0.6; font-size:0.8rem;">🔒 Giriş</a></li>` 
+                    : ``;
+                navMenu.innerHTML = `
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="index.html#tasarimlar">Koleksiyonlar</a></li>
+                    <li><a href="https://www.instagram.com/ihsan.mobilya/" target="_blank" rel="noopener noreferrer" style="color:#e1306c; font-weight:600;">Instagram</a></li>
+                    ${loginLink}
+                `;
+            }
+        }
+
+        function renderDetail() {
+            updateNavbar();
+            const categories = getCategories();
+            const pillsBar = document.getElementById('subcat-pills');
+            const adminBar = document.getElementById('admin-bar');
+            const adminAddBox = document.getElementById('admin-add-box');
+
+            if (isAdmin()) {
+                if (adminBar) adminBar.style.display = 'flex';
+                if (adminAddBox) adminAddBox.style.display = 'block';
+            } else {
+                if (adminBar) adminBar.style.display = 'none';
+                if (adminAddBox) adminAddBox.style.display = 'none';
+            }
+
+            // Alt menü bölmelerini (Footer Directory) Render Et
+            if (typeof renderFooterDirectory === 'function') {
+                renderFooterDirectory('footer-directory');
+            }
+
+            const grid = document.getElementById('detail-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            // Hızlı erişim katalog sözlüğünden kontrol
+            const dirInfo = (typeof findDirectoryItemBySlugOrName === 'function') 
+                ? findDirectoryItemBySlugOrName(rawCatParam) 
+                : null;
+
+            let categoryTitle = 'KOLEKSİYON';
+            let categoryTag = 'ÖZEL TASARIM';
+            let itemsToDisplay = [];
+
+            if (dirInfo) {
+                if (dirInfo.isGroup) {
+                    // Ana grup tıklandı (örn: OTURMA GRUPLARI)
+                    categoryTitle = dirInfo.group.title;
+                    categoryTag = 'TÜM MODELLER VE KOLEKSİYONLAR';
+
+                    // İlgili gruptaki tüm alt kategorilerin modellerini topla
+                    const groupItemSlugs = dirInfo.group.items.map(i => i.slug);
+                    const matchingCats = categories.filter(c => 
+                        c.parentGroup === dirInfo.group.slug || 
+                        c.tag === dirInfo.group.title || 
+                        groupItemSlugs.includes(c.id)
+                    );
+
+                    itemsToDisplay = matchingCats.flatMap(c => c.subItems || []);
+
+                    // Hap butonları göster (Tümü + alt kategoriler)
+                    if (pillsBar) {
+                        pillsBar.style.display = 'flex';
+                        pillsBar.innerHTML = `
+                            <a href="detail.html?cat=${encodeURIComponent(dirInfo.group.slug)}" class="subcat-pill active">Tümü</a>
+                            ${dirInfo.group.items.map(it => `
+                                <a href="detail.html?cat=${encodeURIComponent(it.slug)}" class="subcat-pill">${it.name}</a>
+                            `).join('')}
+                        `;
+                    }
+
+                    // Yönetici için varsayılan ilk kategoriye ekleme yap
+                    const defaultTarget = matchingCats[0] || categories.find(c => c.id === groupItemSlugs[0]);
+                    currentTargetCat = defaultTarget || null;
+
+                } else {
+                    // Tekil bir alt kategori tıklandı (örn: Köşe Takımı, Baza, vb.)
+                    categoryTitle = dirInfo.item.name;
+                    categoryTag = dirInfo.group.title;
+
+                    // Kategoriyi veritabanında bul veya otomatik oluştur
+                    let cat = categories.find(c => c.id === dirInfo.item.slug || (c.name && c.name.toLowerCase() === dirInfo.item.name.toLowerCase()));
+                    if (!cat) {
+                        cat = {
+                            id: dirInfo.item.slug,
+                            name: dirInfo.item.name,
+                            tag: dirInfo.group.title,
+                            parentGroup: dirInfo.group.slug,
+                            hidden: false,
+                            subItems: []
+                        };
+                        categories.push(cat);
+                        saveCategories(categories);
+                    }
+                    currentTargetCat = cat;
+                    itemsToDisplay = cat.subItems || [];
+
+                    // Kardeş alt kategorileri hap butonlarında göster
+                    if (pillsBar) {
+                        pillsBar.style.display = 'flex';
+                        pillsBar.innerHTML = `
+                            <a href="detail.html?cat=${encodeURIComponent(dirInfo.group.slug)}" class="subcat-pill">Tümü (${dirInfo.group.title})</a>
+                            ${dirInfo.group.items.map(it => `
+                                <a href="detail.html?cat=${encodeURIComponent(it.slug)}" class="subcat-pill ${it.slug === dirInfo.item.slug ? 'active' : ''}">${it.name}</a>
+                            `).join('')}
+                        `;
+                    }
+                }
+            } else {
+                // Klasik kategori araması (örn: salon, mutfak, vb.)
+                let category = findCategory(categories, rawCatParam);
+                if (category) {
+                    categoryTitle = category.name;
+                    categoryTag = category.tag || 'Özel Tasarım';
+                    currentTargetCat = category;
+                    itemsToDisplay = (category.subItems && category.subItems.length > 0) ? category.subItems : [];
+
+                    // Eğer boşsa senkronize eşdeğer kategoriden modelleri çek
+                    if (itemsToDisplay.length === 0) {
+                        const rawLower = rawCatParam.toLowerCase().trim();
+                        if (rawLower === 'salon' || rawLower === 'oturma') {
+                            const alt = categories.find(c => c.id === 'koltuk-takimlari' || c.id === 'kose-takimi');
+                            if (alt && alt.subItems && alt.subItems.length > 0) itemsToDisplay = alt.subItems;
+                        } else if (rawLower === 'mutfak') {
+                            const alt = categories.find(c => c.id === 'mutfak-masa-takimi');
+                            if (alt && alt.subItems && alt.subItems.length > 0) itemsToDisplay = alt.subItems;
+                        } else if (rawLower === 'yatak') {
+                            const alt = categories.find(c => c.id === 'yatak-odasi-takimi');
+                            if (alt && alt.subItems && alt.subItems.length > 0) itemsToDisplay = alt.subItems;
+                        }
+                    }
+
+                    // İlgili ana grubu tespit edip hap butonları (pills) göster
+                    const footerCols = (typeof FOOTER_COLLECTIONS !== 'undefined') ? FOOTER_COLLECTIONS : (window.FOOTER_COLLECTIONS || []);
+                    let relatedGroup = null;
+                    if (category.parentGroup && footerCols.length > 0) {
+                        relatedGroup = footerCols.find(g => g.slug === category.parentGroup);
+                    }
+                    if (!relatedGroup && footerCols.length > 0) {
+                        const cText = (category.id + ' ' + category.name + ' ' + (category.tag || '')).toLowerCase();
+                        if (cText.includes('salon') || cText.includes('koltuk') || cText.includes('oturma')) {
+                            relatedGroup = footerCols.find(g => g.slug === 'oturma-gruplari');
+                        } else if (cText.includes('mutfak') || cText.includes('yemek') || cText.includes('masa') || cText.includes('sandalye')) {
+                            relatedGroup = footerCols.find(g => g.slug === 'yemek-odasi');
+                        } else if (cText.includes('yatak') || cText.includes('gardırop') || cText.includes('baza')) {
+                            relatedGroup = footerCols.find(g => g.slug === 'yatak-odasi') || footerCols.find(g => g.slug === 'yatak-ve-baza');
+                        } else if (cText.includes('bahçe') || cText.includes('bahce')) {
+                            relatedGroup = footerCols.find(g => g.slug === 'bahce-mobilyalari');
+                        }
+                    }
+
+                    if (relatedGroup && pillsBar) {
+                        pillsBar.style.display = 'flex';
+                        pillsBar.innerHTML = `
+                            <a href="detail.html?cat=${encodeURIComponent(relatedGroup.slug)}" class="subcat-pill">Tümü (${relatedGroup.title})</a>
+                            ${relatedGroup.items.map(it => `
+                                <a href="detail.html?cat=${encodeURIComponent(it.slug)}" class="subcat-pill ${it.name.toLowerCase() === category.name.toLowerCase() ? 'active' : ''}">${it.name}</a>
+                            `).join('')}
+                        `;
+                    } else if (pillsBar) {
+                        pillsBar.style.display = 'none';
+                    }
+                } else {
+                    if (pillsBar) pillsBar.style.display = 'none';
+                    document.getElementById('category-title').innerText = 'KOLEKSİYON BULUNAMADI';
+                    document.getElementById('category-tag').innerText = 'Hata';
+                    grid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align:center; padding:5rem 0;">
+                            <p style="opacity:0.6; font-size:1.1rem; margin-bottom:2rem;">İstediğiniz kategori sistemde bulunamadı veya silinmiş olabilir.</p>
+                            <a href="index.html" class="btn">Tüm Koleksiyonlara Göz At</a>
+                        </div>
+                    `;
+                    return;
+                }
+            }
+
+            document.getElementById('category-title').innerText = categoryTitle.toUpperCase();
+            document.getElementById('category-tag').innerText = categoryTag;
+            document.title = `${categoryTitle} | İHSAN MOBİLYA`;
+
+            // Eğer bu kategoride henüz model yoksa (Boş durum)
+            if (itemsToDisplay.length === 0) {
+                if (isAdmin()) {
+                    grid.innerHTML = `
+                        <div class="empty-collection-box">
+                            <span class="empty-icon">⚡</span>
+                            <h3>Bu Koleksiyon Henüz Boş</h3>
+                            <p>Yönetici modundasınız. Yukarıdaki <strong>+ MODEL EKLE</strong> formunu doldurarak bu kategoriye hemen fotoğraf ve fiyat ile yeni modeller ekleyebilirsiniz.</p>
+                            <button onclick="toggleAddBox()" class="btn" style="border:none; cursor:pointer;">+ İLK MODELİ EKLE</button>
+                        </div>
+                    `;
+                } else {
+                    grid.innerHTML = `
+                        <div class="empty-collection-box">
+                            <span class="empty-icon">🛋️</span>
+                            <h3>${categoryTitle} Modellerimiz Hazırlanıyor</h3>
+                            <p>Bu koleksiyona ait yeni tasarımlarımız çok yakında web sitemizde sergilenecektir. Atölyemizde kişiye özel ölçü, renk ve kumaş seçenekleriyle üretim yapmaktayız.</p>
+                            <div class="empty-actions">
+                                <a href="https://wa.me/905544055161?text=Merhaba,%20${encodeURIComponent(categoryTitle)}%20modelleri%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn btn-whatsapp">
+                                    💬 WhatsApp ile Bilgi Al
+                                </a>
+                                <a href="https://www.instagram.com/ihsan.mobilya/" target="_blank" rel="noopener noreferrer" class="btn btn-instagram">
+                                    📸 Instagram
+                                </a>
+                                <a href="tel:+905544055161" class="btn btn-call">
+                                    📞 +90 554 405 51 61
+                                </a>
+                                <a href="index.html#tasarimlar" class="btn btn-outline">
+                                    Tüm Koleksiyonlar
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                }
+                return;
+            }
+
+            // Modelleri listele
+            itemsToDisplay.forEach((item, index) => {
+                const imgs = (item.images && item.images.length > 0) ? item.images : ['assets/hero.png'];
+                const hasCampaign = item.discountPrice && item.discountPrice.trim() !== '';
+                const imgsJson = JSON.stringify(imgs);
+
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-img-wrapper" style="cursor:zoom-in;" onclick="openLightbox(${imgsJson.replace(/"/g, '&quot;')}, 0)">
+                        ${hasCampaign ? '<span class="campaign-badge">FIRSAT</span>' : ''}
+                        ${isAdmin() ? `
+                        <div class="admin-overlay">
+                            <button class="icon-btn" onclick="event.stopPropagation(); openEditModal(${index})" style="background:#27ae60" title="Düzenle">✎</button>
+                            <button class="icon-btn icon-btn-del" onclick="event.stopPropagation(); deleteProduct(${index})" title="Sil">×</button>
+                        </div>` : ''}
+                        <img src="${imgs[0]}" alt="${item.title}" id="img-main-${index}" onerror="this.src='assets/hero.png'">
+                        ${imgs.length > 1 ? `
+                        <div class="gallery-dots">
+                            ${imgs.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); switchImg(${index}, ${i})"></span>`).join('')}
+                        </div>` : ''}
+                    </div>
+                    <h4>${item.title}</h4>
+                    <p>${item.desc || ''}</p>
+                    <div class="product-meta">
+                        <div class="price-box">
+                            ${hasCampaign ? `<span class="price-old">${item.price}</span>` : ''}
+                            <span class="price-now">${hasCampaign ? item.discountPrice : item.price}</span>
+                        </div>
+                        <button onclick="openLightbox(${imgsJson.replace(/"/g, '&quot;')}, 0)" class="btn" style="padding:0.6rem 1.4rem; font-size:0.75rem; border:none; border-radius:50px; cursor:pointer;">İNCELE</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ─── Model Ekleme ──────────────────────────────────────────
+        window.handleAddFileUpload = async (input) => {
+            const preview = document.getElementById('add-previews');
+            const label = document.getElementById('add-file-label');
+            newlyAddedImages = [];
+            preview.innerHTML = '';
+
+            const files = Array.from(input.files);
+            if (files.length > 0) {
+                label.innerHTML = `<span>⏳ ${files.length} fotoğraf işleniyor...</span>`;
+                for (const file of files) {
+                    const b64 = await optimizeImage(file);
+                    newlyAddedImages.push(b64);
+                    const thumb = document.createElement('img');
+                    thumb.src = b64;
+                    thumb.className = 'preview-thumb';
+                    preview.appendChild(thumb);
+                }
+                label.innerHTML = `<span>✅ ${files.length} fotoğraf hazır</span>`;
+            }
+        };
+
+        window.addNewProduct = () => {
+            if (!isAdmin() || !currentTargetCat) return;
+
+            const title = document.getElementById('add-title').value.trim();
+            const price = document.getElementById('add-price').value.trim();
+            const discount = document.getElementById('add-discount').value.trim();
+            const desc = document.getElementById('add-desc').value.trim();
+
+            if (!title || !price) {
+                alert('Lütfen model adı ve fiyat alanlarını doldurunuz.');
+                return;
+            }
+
+            const images = newlyAddedImages.length > 0 ? newlyAddedImages : ['assets/hero.png'];
+
+            const newItem = {
+                id: Date.now(),
+                title,
+                price,
+                discountPrice: discount,
+                desc: desc || 'Özel tasarım mobilya modeli.',
+                images
+            };
+
+            const categories = getCategories();
+            let catIdx = categories.findIndex(c => c.id === currentTargetCat.id);
+            if (catIdx === -1) {
+                currentTargetCat.subItems = [newItem];
+                categories.push(currentTargetCat);
+            } else {
+                if (!categories[catIdx].subItems) categories[catIdx].subItems = [];
+                categories[catIdx].subItems.push(newItem);
+            }
+            saveCategories(categories);
+
+            // Formu temizle
+            document.getElementById('add-title').value = '';
+            document.getElementById('add-price').value = '';
+            document.getElementById('add-discount').value = '';
+            document.getElementById('add-desc').value = '';
+            document.getElementById('add-previews').innerHTML = '';
+            document.getElementById('add-file-label').innerHTML = '<span>📁 Bilgisayardan Fotoğraf Seç...</span>';
+            newlyAddedImages = [];
+
+            alert('Yeni model başarıyla eklendi!');
+            renderDetail();
+        };
+
+        window.toggleAddBox = () => {
+            const box = document.getElementById('admin-add-box');
+            if (box) {
+                box.style.display = box.style.display === 'none' ? 'block' : 'none';
+                if (box.style.display === 'block') {
+                    box.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        };
+
+        // ─── Model Silme ──────────────────────────────────────────
+        window.deleteProduct = (idx) => {
+            if (!isAdmin() || !currentTargetCat) return;
+            if (!confirm('Bu modeli koleksiyondan silmek istediğinize emin misiniz?')) return;
+
+            const categories = getCategories();
+            const catIdx = categories.findIndex(c => c.id === currentTargetCat.id);
+            if (catIdx !== -1) {
+                categories[catIdx].subItems.splice(idx, 1);
+                saveCategories(categories);
+                renderDetail();
+            }
+        };
+
+        // ─── Model Düzenleme ──────────────────────────────────────
+        window.openEditModal = (idx) => {
+            if (!isAdmin() || !currentTargetCat) return;
+            const item = currentTargetCat.subItems[idx];
+            document.getElementById('edit-item-idx').value = idx;
+            document.getElementById('edit-title').value = item.title;
+            document.getElementById('edit-desc').value = item.desc || '';
+            document.getElementById('edit-price').value = item.price;
+            document.getElementById('edit-discount').value = item.discountPrice || '';
+            currentEditImages = [...(item.images || [])];
+            renderEditPreviews();
+
+            // Kategori seçim kutusunu 5 grup ve 33 alt kategoriyle doldur ve mevcut kategoriyi seç
+            const catSelect = document.getElementById('edit-category');
+            if (catSelect && typeof populateCategoryDropdown === 'function') {
+                populateCategoryDropdown(catSelect, currentTargetCat.id);
+            }
+
+            document.getElementById('edit-modal').style.display = 'flex';
+        };
+
+        window.closeEditModal = () => {
+            document.getElementById('edit-modal').style.display = 'none';
+        };
+
+        window.renderEditPreviews = () => {
+            const c = document.getElementById('edit-preview-container');
+            c.innerHTML = '';
+            currentEditImages.forEach((src, i) => {
+                const w = document.createElement('div');
+                w.style.position = 'relative';
+                w.innerHTML = `
+                    <img src="${src}" class="preview-thumb" onerror="this.src='assets/hero.png'">
+                    <button type="button" onclick="removeEditPhoto(${i})" style="position:absolute;top:-6px;right:-6px;background:red;color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:13px;">×</button>
+                `;
+                c.appendChild(w);
+            });
+        };
+
+        window.removeEditPhoto = (i) => {
+            currentEditImages.splice(i, 1);
+            renderEditPreviews();
+        };
+
+        window.handleEditFileUpload = async (input) => {
+            for (const file of Array.from(input.files)) {
+                currentEditImages.push(await optimizeImage(file));
+            }
+            renderEditPreviews();
+            input.value = '';
+        };
+
+        window.saveEdit = () => {
+            if (!isAdmin() || !currentTargetCat) return;
+            const idx = parseInt(document.getElementById('edit-item-idx').value);
+            const targetCatSelect = document.getElementById('edit-category');
+            const targetCatId = targetCatSelect ? targetCatSelect.value : currentTargetCat.id;
+
+            const categories = getCategories();
+            const sourceCatIdx = categories.findIndex(c => c.id === currentTargetCat.id);
+            if (sourceCatIdx === -1) return;
+
+            const item = categories[sourceCatIdx].subItems[idx];
+            if (!item) return;
+
+            item.title = document.getElementById('edit-title').value;
+            item.desc = document.getElementById('edit-desc').value;
+            item.price = document.getElementById('edit-price').value;
+            item.discountPrice = document.getElementById('edit-discount').value;
+            item.images = currentEditImages.length > 0 ? currentEditImages : item.images;
+
+            // Kategori değiştirildi mi? ("2 sinde beraber gorunmesin")
+            if (targetCatId && targetCatId !== currentTargetCat.id) {
+                // 1. Kaynak kategoriden çıkar (böylece eski yerde kesinlikle kalmaz)
+                categories[sourceCatIdx].subItems.splice(idx, 1);
+
+                // 2. Hedef kategoriyi bul veya oluştur
+                let destCat = categories.find(c => c.id === targetCatId);
+                if (!destCat) {
+                    const dirMeta = (typeof findDirectoryItemBySlugOrName === 'function') 
+                        ? findDirectoryItemBySlugOrName(targetCatId) 
+                        : null;
+                    destCat = {
+                        id: targetCatId,
+                        name: dirMeta ? dirMeta.title : targetCatId,
+                        tag: dirMeta && dirMeta.group ? dirMeta.group.title : 'Özel Tasarım',
+                        parentGroup: dirMeta && dirMeta.group ? dirMeta.group.slug : '',
+                        hidden: false,
+                        subItems: []
+                    };
+                    categories.push(destCat);
+                }
+                if (!destCat.subItems) destCat.subItems = [];
+
+                // 3. Hedefe ekle (tekrarı önle)
+                const existsInDest = destCat.subItems.some(x => x.id === item.id);
+                if (!existsInDest) {
+                    destCat.subItems.push(item);
+                }
+
+                saveCategories(categories);
+                closeEditModal();
+                renderDetail();
+                alert(`Tasarım "${destCat.name}" kategorisine taşındı!`);
+                return;
+            }
+
+            saveCategories(categories);
+            closeEditModal();
+            renderDetail();
+        };
+
+        // ─── Görsel Geçişi & Lightbox ─────────────────────────────
+        window.switchImg = (itemIdx, imgIdx) => {
+            if (!currentTargetCat) return;
+            const imgs = currentTargetCat.subItems[itemIdx].images;
+            const el = document.getElementById(`img-main-${itemIdx}`);
+            if (el) {
+                el.src = imgs[imgIdx];
+                el.parentElement.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === imgIdx));
+            }
+        };
+
+        function openLightbox(imgs, idx) {
+            currentLightboxImages = Array.isArray(imgs) ? imgs : [imgs];
+            currentLightboxIndex = idx;
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = currentLightboxImages[idx];
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.querySelectorAll('.lightbox-nav').forEach(n => n.style.display = currentLightboxImages.length > 1 ? 'flex' : 'none');
+        }
+
+        window.changeLightboxImage = (dir) => {
+            currentLightboxIndex = (currentLightboxIndex + dir + currentLightboxImages.length) % currentLightboxImages.length;
+            document.getElementById('lightbox-img').src = currentLightboxImages[currentLightboxIndex];
+        };
+
+        window.closeLightbox = () => {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        window.logoutAdmin = () => {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('rememberMe');
+            alert('Yönetim modundan çıkış yapıldı.');
+            renderDetail();
+        };
+
+        // Görsel Optimizasyon
+        function optimizeImage(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const MAX = 1000;
+                        const scale = MAX / img.width;
+                        canvas.width = MAX;
+                        canvas.height = img.height * scale;
+                        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+                        resolve(canvas.toDataURL('image/jpeg', 0.75));
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const lb = document.getElementById('lightbox');
+            if (lb && lb.classList.contains('active')) {
+                if (e.key === 'ArrowRight') changeLightboxImage(1);
+                if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+                if (e.key === 'Escape') closeLightbox();
+            }
+            if (document.getElementById('edit-modal') && document.getElementById('edit-modal').style.display === 'flex') {
+                if (e.key === 'Escape') closeEditModal();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', renderDetail);
+    </script>
+</body>
+</html>
