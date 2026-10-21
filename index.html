@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İHSAN MOBİLYA | Premium Tasarım</title>
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=9">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><img src="assets/logo.jpg" alt="İhsan Mobilya Logo" class="logo-img">İHSAN<span>MOBİLYA</span></a>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#tasarimlar">Koleksiyonlar</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+                <!-- Yönetim / Giriş linkleri app.js tarafından doldurulur -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="background-image: url('assets/hero.png');">
+        <div class="hero-content">
+            <span class="hero-pre">İHSAN MOBİLYA KOLEKSİYONLARI</span>
+            <h1>Yaşam Alanınızı<br>Yeniden Tasarlayın</h1>
+            <p>Premium mobilya tasarımları ile evinize lüksü ve konforu getirin.</p>
+            <a href="#tasarimlar" class="btn">KOLEKSİYONLARI İNCELE</a>
+        </div>
+    </section>
+
+    <!-- Kategori Grid -->
+    <section id="tasarimlar">
+        <div class="section-header">
+            <h2 class="section-title"><span>Özel</span> Tasarımlar</h2>
+        </div>
+        <div class="category-grid" id="calendar-grid">
+            <!-- app.js tarafından doldurulur -->
+        </div>
+    </section>
+
+    <!-- İletişim -->
+    <section id="iletisim" class="contact-section">
+        <div class="contact-grid">
+            <div>
+                <h2 class="contact-title">İHSAN<span>MOBİLYA</span></h2>
+                <p class="contact-sub" style="margin-bottom:0.4rem;">
+                    <a href="tel:+905544055161" class="phone-highlight">📞 +90 554 405 51 61</a>
+                </p>
+                <p class="contact-address">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Y%C3%BCkseltepe+Mah.+Karake%C3%A7ili+Cad.+12%2FA+Ke%C3%A7i%C3%B6ren%2FAnkara" target="_blank" rel="noopener noreferrer" title="Google Haritalar'da Aç">
+                        📍 Yükseltepe Mah. Karakeçili Cad. 12/A Keçiören/Ankara
+                    </a>
+                </p>
+                <div style="margin-top:1.5rem; display:flex; gap:12px; flex-wrap:wrap;">
+                    <a href="https://wa.me/905544055161?text=Merhaba,%20mobilya%20modelleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="padding:0.7rem 1.6rem; font-size:0.85rem; border-radius:50px; text-decoration:none;">
+                        💬 WhatsApp ile İletişim
+                    </a>
+                    <a href="https://www.instagram.com/ihsan.mobilya/" target="_blank" rel="noopener noreferrer" class="btn btn-instagram" style="padding:0.7rem 1.6rem; font-size:0.85rem; border-radius:50px; text-decoration:none;">
+                        📸 Instagram'da Bizi Takip Edin
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form-box">
+                <h3>Bize Ulaşın</h3>
+                <input type="text" placeholder="Adınız" class="admin-input" style="margin-bottom:1rem;">
+                <textarea placeholder="Mesajınız" class="admin-input" style="height:80px; margin-bottom:1.5rem;"></textarea>
+                <button class="btn" style="width:100%; border:none; cursor:pointer;">GÖNDER</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kolay Erişim Bölmeleri (Kategoriler & Alt Modeller) -->
+    <section class="footer-directory-section" id="footer-directory">
+        <!-- catalog-def.js / app.js tarafından 5 kolon olarak doldurulur -->
+    </section>
+
+    <footer>
+        <p>&copy; 2026 İhsan Mobilya. Tüm hakları saklıdır. &bull; <a href="tel:+905544055161" style="color:inherit; text-decoration:none;">+90 554 405 51 61</a> &bull; Yükseltepe Mah. Karakeçili Cad. 12/A Keçiören/Ankara &bull; <a href="https://www.instagram.com/ihsan.mobilya/" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none;">📸 @ihsan.mobilya</a></p>
+    </footer>
+
+    <!-- Admin Bar (Sadece giriş yapmış yöneticiye görünür) -->
+    <div id="admin-bar" class="admin-bar" style="display:none;">
+        <span class="admin-label">⚡ YÖNETİCİ MODU</span>
+        <div style="display:flex; gap:0.8rem; align-items:center;">
+            <button onclick="toggleEditMode()" id="edit-mode-toggle" class="btn" style="padding:0.45rem 1.1rem; font-size:0.75rem; background:#222; border:1px solid #444; color:#fff;">DÜZENLEMEYİ AÇ</button>
+            <a href="admin.html" class="btn" style="padding:0.45rem 1.1rem; font-size:0.75rem; background:var(--accent-color); color:#000; text-decoration:none;">PANEL</a>
+            <button onclick="logoutAdmin()" class="btn" style="padding:0.45rem 1rem; font-size:0.75rem; background:#c0392b; color:#fff; border:none;">ÇIKIŞ</button>
+        </div>
+    </div>
+
+    <script src="catalog-def.js"></script>
+    <script src="app.js?v=9"></script>
+</body>
+</html>
