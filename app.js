@@ -51,6 +51,24 @@ function getCategories() {
 
 function saveCategories(cats) {
     localStorage.setItem('ihsan_categories', JSON.stringify(cats));
+    // Server'a da kaydet (senkronizasyon)
+    fetch('/api/data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ categories: cats, campaigns: [], orders: [] })
+    }).catch(() => {}); // Hata olursa sessizce geç
+}
+
+// Sayfa yüklenince server'dan kategorileri çek ve localStorage'a yaz
+async function syncFromServer() {
+    try {
+        const res = await fetch('/api/data');
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.categories && Array.isArray(data.categories) && data.categories.length > 0) {
+            localStorage.setItem('ihsan_categories', JSON.stringify(data.categories));
+        }
+    } catch(e) {}
 }
 
 let isEditMode = false;
@@ -207,4 +225,7 @@ window.toggleEditMode = () => {
     renderHomeContent();
 };
 
-document.addEventListener('DOMContentLoaded', renderHomeContent);
+document.addEventListener('DOMContentLoaded', async () => {
+    await syncFromServer();
+    renderHomeContent();
+});
